@@ -9,12 +9,12 @@ Anggota Kelompok:
 Jalankan `java -jar mongodb-twitterclient.jar` yang ada pada folder `bin`. Pastikan bahwa file `config.properties` ada pada direktori yang sama.
 
 Berikut adalah perintah yang dapat dilakukan:
-- register <username> <password>: Meregister user baru
-- login <username> <password>: Login dengan akun yang sudah ada
-- follow <username>: Menjadi follower dari <username>
-- tweet <body>: Membuat tweet dengan isi <body>
-- show tweet <username>: Melihat tweet yang dibuat <username>
-- show timeline: Melihat timeline sendiri (yang berisi tweet2 orang yang kita follow)
+- `register <username> <password>`: Meregister user baru
+- `login <username> <password>`: Login dengan akun yang sudah ada
+- `follow <username>`: Menjadi follower dari <username>
+- `tweet <body>`: Membuat tweet dengan isi <body>
+- `show tweet <username>`: Melihat tweet yang dibuat <username>
+- `show timeline`: Melihat timeline sendiri (yang berisi tweet-tweet orang yang kita follow)
 
 ## File Konfigurasi
 
