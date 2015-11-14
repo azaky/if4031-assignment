@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="simple-irc-rabbitmq" default="all">
+  
+  
+  <property file="build.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.bundle/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/.tox/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.ear"/>
+    <include name="*.apk"/>
+    <include name="*.zip"/>
+    <include name="*.swc"/>
+    <include name="*.ane"/>
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+      <include name="jre/lib/ext/access-bridge.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/commons-fileupload-1.3.1.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.lib.classpath">
+    <fileset dir="${basedir}/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
+  </path>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module simple-irc-rabbitmq -->
+  
+  <dirname property="module.simple-irc-rabbitmq.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.simple-irc-rabbitmq" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.simple-irc-rabbitmq" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.simple-irc-rabbitmq" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.simple-irc-rabbitmq" value="-encoding windows-1252 -source 8 ${compiler.args}"/>
+  
+  <property name="simple-irc-rabbitmq.output.dir" value="${module.simple-irc-rabbitmq.basedir}/out/production/simple-irc-rabbitmq"/>
+  <property name="simple-irc-rabbitmq.testoutput.dir" value="${module.simple-irc-rabbitmq.basedir}/out/test/simple-irc-rabbitmq"/>
+  
+  <path id="simple-irc-rabbitmq.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="simple-irc-rabbitmq.module.production.classpath">
+    <path refid="${module.jdk.classpath.simple-irc-rabbitmq}"/>
+    <path refid="library.lib.classpath"/>
+  </path>
+  
+  <path id="simple-irc-rabbitmq.runtime.production.module.classpath">
+    <pathelement location="${simple-irc-rabbitmq.output.dir}"/>
+    <path refid="library.lib.classpath"/>
+  </path>
+  
+  <path id="simple-irc-rabbitmq.module.classpath">
+    <path refid="${module.jdk.classpath.simple-irc-rabbitmq}"/>
+    <pathelement location="${simple-irc-rabbitmq.output.dir}"/>
+    <path refid="library.lib.classpath"/>
+  </path>
+  
+  <path id="simple-irc-rabbitmq.runtime.module.classpath">
+    <pathelement location="${simple-irc-rabbitmq.testoutput.dir}"/>
+    <pathelement location="${simple-irc-rabbitmq.output.dir}"/>
+    <path refid="library.lib.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.simple-irc-rabbitmq">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.simple-irc-rabbitmq">
+    <patternset refid="excluded.from.module.simple-irc-rabbitmq"/>
+  </patternset>
+  
+  <path id="simple-irc-rabbitmq.module.sourcepath">
+    <dirset dir="${module.simple-irc-rabbitmq.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.simple-irc-rabbitmq" depends="compile.module.simple-irc-rabbitmq.production,compile.module.simple-irc-rabbitmq.tests" description="Compile module simple-irc-rabbitmq"/>
+  
+  <target name="compile.module.simple-irc-rabbitmq.production" description="Compile module simple-irc-rabbitmq; production classes">
+    <mkdir dir="${simple-irc-rabbitmq.output.dir}"/>
+    <javac destdir="${simple-irc-rabbitmq.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.simple-irc-rabbitmq}/javac">
+      <compilerarg line="${compiler.args.simple-irc-rabbitmq}"/>
+      <bootclasspath refid="simple-irc-rabbitmq.module.bootclasspath"/>
+      <classpath refid="simple-irc-rabbitmq.module.production.classpath"/>
+      <src refid="simple-irc-rabbitmq.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.simple-irc-rabbitmq"/>
+    </javac>
+    
+    <copy todir="${simple-irc-rabbitmq.output.dir}">
+      <fileset dir="${module.simple-irc-rabbitmq.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.simple-irc-rabbitmq.tests" depends="compile.module.simple-irc-rabbitmq.production" description="compile module simple-irc-rabbitmq; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.simple-irc-rabbitmq" description="cleanup module">
+    <delete dir="${simple-irc-rabbitmq.output.dir}"/>
+    <delete dir="${simple-irc-rabbitmq.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.simple-irc-rabbitmq" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.simple-irc-rabbitmq" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.simple-irc-rabbitmq:jar" value="${basedir}/out/artifacts/simple_irc_rabbitmq_jar"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.simple-irc-rabbitmq.jar" value="${artifacts.temp.dir}/simple-irc-rabbitmq.jar"/>
+  </target>
+  
+  <target name="artifact.simple-irc-rabbitmq:jar" depends="init.artifacts, compile.module.simple-irc-rabbitmq" description="Build &#39;simple-irc-rabbitmq:jar&#39; artifact">
+    <property name="artifact.temp.output.simple-irc-rabbitmq:jar" value="${artifacts.temp.dir}/simple_irc_rabbitmq_jar"/>
+    <mkdir dir="${artifact.temp.output.simple-irc-rabbitmq:jar}"/>
+    <jar destfile="${temp.jar.path.simple-irc-rabbitmq.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset file="${basedir}/manifest/META-INF/MANIFEST.MF" prefix="META-INF"/>
+      <zipfileset dir="${simple-irc-rabbitmq.output.dir}"/>
+      <zipfileset src="${basedir}/lib/junit.jar"/>
+      <zipfileset src="${basedir}/lib/hamcrest-core.jar"/>
+      <zipfileset src="${basedir}/lib/commons-io-1.2.jar"/>
+      <zipfileset src="${basedir}/lib/commons-cli-1.1.jar"/>
+      <zipfileset src="${basedir}/lib/rabbitmq-client.jar"/>
+      <zipfileset src="${basedir}/lib/amqp-client-3.5.6.jar"/>
+      <zipfileset src="${basedir}/lib/commons-lang3-3.4.jar"/>
+      <zipfileset src="${basedir}/lib/rabbitmq-client-tests.jar"/>
+    </jar>
+    <copy file="${temp.jar.path.simple-irc-rabbitmq.jar}" tofile="${artifact.temp.output.simple-irc-rabbitmq:jar}/simple-irc-rabbitmq.jar"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.simple-irc-rabbitmq:jar" description="Build all artifacts">
+    <mkdir dir="${artifact.output.simple-irc-rabbitmq:jar}"/>
+    <copy todir="${artifact.output.simple-irc-rabbitmq:jar}">
+      <fileset dir="${artifact.temp.output.simple-irc-rabbitmq:jar}"/>
+    </copy>
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>

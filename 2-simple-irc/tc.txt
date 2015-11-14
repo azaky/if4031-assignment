@@ -1,0 +1,89 @@
+- Testcase 1
+
+Pertama server dijalankan
+
+Client 1 dan Client 2 dijalankan.
+Command yang dimasukkan berurut seperti berikut:
+
+Client 1:
+/NICK Willy
+/JOIN grup
+
+Client 2:
+/NICK Zaky
+/JOIN grup
+@grup Halo
+
+Client 1 akan menerima pesan:
+
+Client 2 akan menerima pesan:
+
+Testcase 2
+
+Pertama server dijalankan
+
+Client 1 dan Client 2 dijalankan.
+Command yang dimasukkan berurut seperti berikut:
+
+Client 1:
+/NICK Willy
+/JOIN grup
+
+Client 2:
+/NICK Zaky
+/JOIN grup
+
+Client 1:
+/LEAVE grup
+
+Client 2:
+@grup Halo
+
+Client 1 akan menerima pesan:
+
+Client 2 akan menerima pesan:
+
+- Testcase 2
+
+Pertama server dijalankan
+
+Client 1 dan Client 2 dijalankan.
+Command yang dimasukkan berurut seperti berikut:
+
+Client 1:
+/NICK Willy
+/JOIN grup
+
+Client 2:
+/NICK Zaky
+/JOIN grup
+
+Client 1:
+/EXIT
+
+Client 2:
+@grup Halo
+/NICK Azaky
+Halo
+
+Client 1 akan menerima pesan:
+
+Client 2 akan menerima pesan:
+
+- Testcase 3
+
+Pertama server dijalankan
+
+Client 1 dan Client 2 dijalankan.
+Command yang dimasukkan berurut seperti berikut:
+
+
+Client 1:
+halo
+
+Client 2:
+halo
+
+Client 1 akan menerima pesan:
+
+Client 2 akan menerima pesan:

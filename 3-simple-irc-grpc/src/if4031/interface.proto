@@ -1,0 +1,31 @@
+package if4031;
+
+// The greeter service definition.
+service Greeter {
+	// Get token
+	rpc getToken(string) returns(string);
+
+	// Get the nickname
+	rpc getNickname(string) returns (string);
+
+	// Set nickname
+	rpc getNickname(string, string) returns (bool);
+
+	// Join a channel
+	rpc joinChannel(string, string) returns (void);
+
+	// Leave a channel
+	rpc leaveChannel(string, string) returns (void);
+
+	// Send a message
+	rpc sendMessage(string, string) returns (void);
+
+	// Send a message to a particular channel
+	rpc sendMessageToChannel(string, string, string) returns (void);
+
+	// Get messages
+	rpc getMessage(string) returns (repeated string);
+
+	// Exit from the application
+	rpc exit(string) returns (void); 
+}
